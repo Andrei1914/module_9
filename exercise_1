@@ -1,0 +1,26 @@
+2023/11/29 00:00|Домашнее задание по теме "Введение в функциональное программирование"
+
+def apply_all_func(int_list, *functions):
+    result = {}
+    for func in functions:
+        result.update({func.__name__: func(int_list)})
+    return result
+
+int_list = [6, 20, 15, 9]
+def max_(int_list):
+    return max(int_list)
+
+def min_(int_list):
+    return min(int_list)
+
+def len_(int_list):
+    return len(int_list)
+
+def sum_(int_list):
+    return sum(int_list)
+
+def sort_(int_list):
+    return sorted(int_list)
+
+print(apply_all_func(int_list, min_, max_, sum_))
+print(apply_all_func(int_list, len_, sort_))
