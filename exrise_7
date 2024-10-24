@@ -1,0 +1,22 @@
+2023/12/05 00:00|Домашнее задание по теме "Декораторы"
+
+def is_prime(func):
+    def wrapper(*args):
+        result = func(*args)
+        print(result)
+        if result > 1:
+            for i in range(2, int(result // 0.5) + 1):
+                if result % i == 0:
+                    return 'У вас простое число!'
+            else:
+                 return 'У вас составное число!'
+    return wrapper
+
+
+@is_prime
+def sum_three(*args):
+    return sum(args)
+
+
+sum_number = sum_three(2, 3, 6)
+print(sum_number)
